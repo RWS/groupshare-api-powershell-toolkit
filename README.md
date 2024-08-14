@@ -1,6 +1,6 @@
-# Trados Groupshare API Powershell Toolkit
+# Trados GroupShare API Powershell Toolkit
 ## Introduction
-The Trados Groupshare API Powershell Toolkit allows users to script the Rest API that is available for Trados GroupShare. The purpose of the toolkit is to automate various operations by using the powershell console.
+The Trados GroupShare API Powershell Toolkit allows users to script the Rest API that is available for Trados GroupShare. The purpose of the toolkit is to automate various operations by using the powershell console.
 
 ## Table of contents
 <details>
@@ -427,7 +427,7 @@ For the functions that requires `psobject` types, you can navigate to the Object
 
 | Function Name | Syntax | Description |
 | - | - | - |
-| SignIn | `[[-userName] <String>] [[-password] <String>]` | This function is generating an authorization key as a string, which can be saved and used for all the other functions that need to access sensitive information from the server <br> **Parameters** <br> **userName** - Mandatory Parameter - Represents the username used for logging on the groupshare server <br> **password** - Mandatory Parameter - Represents the password used for logging on the groupshare server | 
+| SignIn | `[[-userName] <String>] [[-password] <String>]` | This function is generating an authorization key as a string, which can be saved and used for all the other functions that need to access sensitive information from the server <br> **Parameters** <br> **userName** - Mandatory Parameter - Represents the username used for logging on the GroupShare server <br> **password** - Mandatory Parameter - Represents the password used for logging on the GroupShare server | 
 
 ### BackgroundTaskHelper
 
@@ -495,7 +495,7 @@ For the functions that requires `psobject` types, you can navigate to the Object
 ### SystemConfigurationHelper
 | Function Name | Syntax | Description |
 | - | - | - |
-| Get-Licensing | `[-authorizationToken] <String>` | Gets the groupshare licensing information <br> **Parameters**<br>**authorizationToken** - Mandatory Parameter - Required for accessing sensitive resources |
+| Get-Licensing | `[-authorizationToken] <String>` | Gets the GroupShare licensing information <br> **Parameters**<br>**authorizationToken** - Mandatory Parameter - Required for accessing sensitive resources |
 | Get-AllDbServers | `[-authorizationToken] <String>` | Gets all the databases from the server <br> **Parameters**<br>**authorizationToken** - Mandatory Parameter - Required for accessing sensitive resources |
 | Get-DBServer | `[-authorizationToken] <String> [[-serverName] <String>] [[-serverId] <String>]` | Gets the database server with the specified arguments <br> **Parameters**<br>**authorizationToken** - Mandatory Parameter - Required for accessing sensitive resources <br> **serverName** - Optional Parameter <br> **serverId** - Optional Parameter <br> If both **serverName** and **serverId** are provided, the function will search for the server that matches the server id. If it is not found, an error message will be displayed on the console. After that, the function will search for the server that matches the provided name | 
 | New-DbServer | ` [-authorizationToken] <String> [-name] <String> [-serverName] <String> [-authentication] <String> [-ownerOrganization] <PSObject> [[-description] <String>] [[-userName] <String>] [[-password] <String>]` | Creates a new database server <br> **Parameters**<br>**authorizationToken** - Mandatory Parameter - Required for accessing sensitive resources<br> **serverName** - Mandatory Parameter <br> **authentication** - Represents the authentication method on the server. This parameter can be `Windows` or `Database`. If this parameter value is `Database` the **userName** and **password** parameter must be provided <br> **ownerOrganization** - Mandatory Parameter - An [organization](#organization) object, representing the owner of this server <br> **description** - Optional Parameter <br> **description** - Optional Parameter <br> **userName** and **password** - Optional Parameters - Represents the credentials for accessing this database. If the **authentication** parameter is `Database` these two parameters must be provided |
