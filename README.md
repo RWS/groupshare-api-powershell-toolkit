@@ -1,6 +1,6 @@
-# Trados GroupShare API Powershell Toolkit
+# GroupShare API Powershell Toolkit
 ## Introduction
-The Trados GroupShare API Powershell Toolkit allows users to script the Rest API that is available for Trados GroupShare. The purpose of the toolkit is to automate various operations by using the powershell console.
+The GroupShare API Powershell Toolkit allows users to script the Rest API that is available for GroupShare. The purpose of the toolkit is to automate various operations by using the powershell console.
 
 ## Table of contents
 <details>
