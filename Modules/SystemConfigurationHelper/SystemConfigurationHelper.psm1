@@ -562,8 +562,9 @@ function Get-Container
 #>
 function Get-AllContainers 
 {
-    [Parameter(Mandatory=$true)]
-    param([String] $authorizationToken)
+    param(
+        [Parameter(Mandatory=$true)]
+        [String] $authorizationToken)
 
     $uri = $containersEndpoint;
     $headers = FormatHeaders $authorizationToken
@@ -572,6 +573,66 @@ function Get-AllContainers
     if ($response)
     {
         return $response.Items;
+    }
+}
+
+
+<#  
+    .SYNOPSIS
+    Gets all the existing containers as a list of containers that are part of the given organzation.
+
+    .DESCRIPTION
+    Returns all the containers within a given organization as a list of containers represented as powershell objects.
+
+    .PARAMETER authorizationToken
+    Represents the security token that allows user to access sensitive resources. 
+
+    Can be retrieved from:
+        SignIn 
+
+    For further documentation:
+        Get-Help SignIn
+
+    .PARAMETER organization
+    Represents the organization as a PSObject that will be used as a filter.
+
+    Can be retrieved from:
+        Get-AllOrganizations
+        Get-Organization
+        New-Organization
+        Update-Organization
+
+    For further documentation see:
+        Get-Help Get-AllOrganizations
+        Get-Help Get-Organization
+        Get-Help New-Organization
+        Get-Help Update-Organization
+
+    .EXAMPLE
+    $token = SignIn -userName "userName" -password "password"
+    $organization = Get-Organization -authorizationToken $token -organizationName "Root Organization"
+    Get-AllContainers -authorizationToken $token -organization $organization
+
+    This method firt retrieves the authorizationToken, then use it to retrieve all the containers.
+
+    .OUTPUTS
+    [PSObject[]]
+    This method returns a collection of psobjects representing the containers found on the server.
+#>
+function Get-ContainersByOrganization
+{
+    param (
+        [Parameter(Mandatory=$true)]
+        [String] $authorizationToken,
+
+        [Parameter(Mandatory=$true)]
+        [psobject] $organization
+    )
+
+    $containers = Get-AllContainers $token
+    if ($containers)
+    {
+        return $containers | Where-Object { $_.OwnerId -eq $organization.UniqueId }
     }
 }
 
@@ -598,7 +659,7 @@ function Get-AllContainers
     .Parameter organization
     Represents the organization which will own the container as a powershell object.
 
-    Can be retriever from:
+    Can be retrieved from:
         Get-AllOrganizations
         Get-Organization
         New-Organization
@@ -829,6 +890,7 @@ Export-ModuleMember New-DbServer;
 Export-ModuleMember Remove-DbServer;
 Export-ModuleMember Update-DbServer;
 Export-ModuleMember Get-AllContainers;
+Export-ModuleMember Get-ContainersByOrganization;
 Export-ModuleMember Get-Container;
 Export-ModuleMember New-Container;
 Export-ModuleMember Remove-Container;

@@ -115,6 +115,48 @@ function Get-AllTMs
 
 <#
     .SYNOPSIS
+    Gets all the translation memories within the given container as a list 
+
+    .DESCRIPTION
+    Gets all the translation memories within the given container.
+    Returns a list of translation memories represented as powershell objects.
+
+    .PARAMETER authorizationToken
+    Represents the security token that allows user to access sensitive resources. 
+
+    Can be retrieved from:
+        SignIn 
+
+    For further documentation:
+        Get-Help SignIn
+
+    .EXAMPLE
+    $token = SignIn -userName "username" -password "password"
+    Get-AllTMs -authorizationToken $token
+
+    .OUTPUTS
+    [PSObject[]]
+    This method returns a collection of PSObject representing the Translation Memory found on the server.
+#>
+function Get-TMsByContainer 
+{
+    param (
+        [Parameter(Mandatory=$true)]
+        [String] $authorizationToken,
+
+        [Parameter(Mandatory=$true)]
+        [psobject] $container
+    )
+
+    $tms = Get-AllTMs $authorizationToken
+    if ($tms)
+    {
+        return $tms | Where-Object {$_.ContainerId -eq $container.ContainerId}
+    }
+}
+
+<#
+    .SYNOPSIS
     Creates a new Translation Memory
 
     .PARAMETER authorizationToken
@@ -2340,6 +2382,7 @@ function Get-TemplateSettingsFromPath
 }
  
 Export-ModuleMember Get-AllTMs;
+Export-ModuleMember Get-TMsByContainer;
 Export-ModuleMember Get-TM;
 Export-ModuleMember New-TM;
 Export-ModuleMember Remove-Tm;
