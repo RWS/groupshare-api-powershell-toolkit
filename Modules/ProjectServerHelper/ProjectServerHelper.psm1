@@ -925,13 +925,18 @@ function Get-FilesPhasesFromProject
     )
 
     $phases = Get-ProjectPhases $authorizationToken $project
-    $phase = $phases[0]
-
-    $uri = $server + "api/projectserver/v2" + "/projects/" + $project.ProjectId + "/phaseswithassignees/" + $phase.ProjectPhaseId;
-    
     $headers = FormatHeaders $authorizationToken;
 
-    return Invoke-Method {  Invoke-RestMethod -uri $uri -Headers $headers }
+    $files = @()
+    foreach ($phase in $phases)
+    {
+        $uri = [string]$server + "api/projectserver/v2" + "/projects/" + $project.ProjectId + "/phaseswithassignees/" + $phase.ProjectPhaseId;
+        $items = Invoke-Method  { Invoke-RestMethod -uri $uri -Headers $headers }
+        $items = $items | Where-Object {$_.CurrentPhaseId -eq $phase.ProjectPhaseId }
+        $files += $items;
+    }
+
+    return $files;
 }
 
 <#
