@@ -1,8 +1,8 @@
 # GroupShare API Powershell Toolkit
 ## Introduction
-The GroupShare API Powershell Toolkit allows users to script the Rest API that is available for GroupShare. The purpose of the toolkit is to automate various operations by using the powershell console.
+The GroupShare API Powershell Toolkit allows users to script the REST API that is available for GroupShare. The purpose of the toolkit is to automate various operations by using the powershell console.
 
-## Table of contents
+## Table of Contents
 <details>
   <summary>Expand</summary>
 
@@ -12,10 +12,10 @@ The GroupShare API Powershell Toolkit allows users to script the Rest API that i
   - [Running the Sample_Roundtrip Script](#running-the-sample_roundtrip-script)
   - [Importing and Using PowerShell Modules](#importing-and-using-powershell-modules)
   - [Accessing Module Documentation](#accessing-and-manipulating-resources)
-  - [Accessing and manipulating resources](#accessing-and-manipulating-resources)
-  - [Understanding the psobject parameters](#understanding-the-psobject-paramters)
+  - [Accessing and Manipulating Resources](#accessing-and-manipulating-resources)
+  - [Understanding the PSObject Parameters](#understanding-the-psobject-paramters)
   - [Ensuring File Permissions for Toolkit Files](#ensuring-file-permissions-for-toolkit-files)
-  - [Function documentation](#function-documentation)
+  - [Function Documentation](#function-documentation)
   - [Contribution](#contribution)
   - [Issues](#issues)
   - [Changes](#changes)
@@ -30,28 +30,28 @@ To run the scripts, ensure you have the following:
 
 ## Installation
 1. Download the Files
-    - **Obtain all necessary files:** Ensure you have downloaded the toolkit files, including sample roundtrip script and PowerShell modules. These files should be obtained from the [here](https://github.com/RWS/rws-trados-groupshare-api-powershell-toolkit/). 
+    - **Obtain all necessary files:** Ensure you have downloaded the toolkit files, including sample roundtrip script and PowerShell modules. These files should be obtained from the [here](https://github.com/RWS/groupshare-api-powershell-toolkit/releases/tag/1.0.0.0). 
     - After downloading, you may need to unblock the zip file. For instructions on how to unblock files, see [Ensuring File Permissions](#ensuring-file-permissions-for-toolkit-files) for Toolkit File.
 2. Create Required Folders
     - Create the following folders if they do not already exist:
-      -  `C:\users\{your_user_name}\Documents\Powershell`
-      -  `C:\users\{your_user_name}\Documents\Powershell\Modules`
+      -  `C:\users\{your_user_name}\Documents\PowerShell`
+      -  `C:\users\{your_user_name}\Documents\PowerShell\Modules`
 3. Copy Sample Roundtrip Script
     - Copy the `Sample_Roundtrip.ps1` scripts into the `Powershell` folder:
-    - Ensure these files are placed directly in `C:\Users\{your_user_name}\Documents\Powershell`.
+    - Ensure these files are placed directly in `C:\Users\{your_user_name}\Documents\PowerShell`.
 4. Copy PowerShell Modules
     - Copy the PowerShell modules into the `Modules` folder:
-      - `...\Powershell\Modules\AuthenticationHelper`
-      - `...\Powershell\Modules\BackgroundTaskHelper`
-      - `...\Powershell\Modules\ProjectServerHelper`
-      - `...\Powershell\Modules\ResourcesHelper`
-      - `...\Powershell\Modules\UserManagerHelper`
-      - `...\Powershell\Modules\SystemConfigurationHelper`
+      - `...\PowerShell\Modules\AuthenticationHelper`
+      - `...\PowerShell\Modules\BackgroundTaskHelper`
+      - `...\PowerShell\Modules\ProjectServerHelper`
+      - `...\PowerShell\Modules\ResourcesHelper`
+      - `...\PowerShell\Modules\UserManagerHelper`
+      - `...\PowerShell\Modules\SystemConfigurationHelper`
     - Ensure each module folder contains its respective `.psd1` and `.psm1` files.
 5. Verify File Locations
     - Confirm the locations of the files:
-      - The roundtrip script should be in `C:\Users\{your_user_name}\Documents\Powershell`.
-      - Modules should be in `C:\Users\{your_user_name}\Documents\Powershell\Modules` with appropriate subfolders for each module.
+      - The roundtrip script should be in `C:\Users\{your_user_name}\Documents\PowerShell`.
+      - Modules should be in `C:\Users\{your_user_name}\Documents\PowerShell\Modules` with appropriate subfolders for each module.
 
 ## Configuring the scripts
 Before running the scripts, you need to configure the connection to your GroupShare server. This involves setting the server details either in the module files or directly during module import, and configuring the `Sample_Roundtrip.ps1` script with your server and authentication details.
@@ -126,7 +126,7 @@ To use the `Sample_Roundtrip.ps1` script, you need to configure it with your act
         ```
           Replace `"Path_to_Module"` with the actual path where each module is located. For example:
         ```powershell
-        Import-Module -Name "C:\Users\your_user_name\Documents\WindowsPowerShell\Modules\AuthenticationHelper" -ArgumentList $server
+        Import-Module -Name "C:\Users\your_user_name\Documents\PowerShell\Modules\AuthenticationHelper" -ArgumentList $server
         ```
 4. Save the Changes
     - **Save the File:** After updating the values, save the changes to the `Sample_Roundtrip.ps1` file.
@@ -175,12 +175,12 @@ Before using the functions provided by the modules, you need to ensure they are 
 3. Import Modules from Specific Path
     - If the modules are not available in the environment path, you will need to import them from their specific location. Use the full path to the module when importing. For example:
       ```
-      Import-Module -Name "C:\Users\{your_user_name}\Documents\Powershell\Modules\AuthenticationHelper" -ArgumentList $server
-      Import-Module -Name "C:\Users\{your_user_name}\Documents\Powershell\Modules\BackgroundTaskHelper" -ArgumentList $server
-      Import-Module -Name "C:\Users\{your_user_name}\Documents\Powershell\Modules\ProjectServerHelper" -ArgumentList $server
-      Import-Module -Name "C:\Users\{your_user_name}\Documents\Powershell\Modules\ResourcesHelper" -ArgumentList $server
-      Import-Module -Name "C:\Users\{your_user_name}\Documents\Powershell\Modules\SystemConfigurationHelper" -ArgumentList $server
-      Import-Module -Name "C:\Users\{your_user_name}\Documents\Powershell\Modules\UserManagerHelper" -ArgumentLis $server
+      Import-Module -Name "C:\Users\{your_user_name}\Documents\PowerShell\Modules\AuthenticationHelper" -ArgumentList $server
+      Import-Module -Name "C:\Users\{your_user_name}\Documents\PowerShell\Modules\BackgroundTaskHelper" -ArgumentList $server
+      Import-Module -Name "C:\Users\{your_user_name}\Documents\PowerShell\Modules\ProjectServerHelper" -ArgumentList $server
+      Import-Module -Name "C:\Users\{your_user_name}\Documents\PowerShell\Modules\ResourcesHelper" -ArgumentList $server
+      Import-Module -Name "C:\Users\{your_user_name}\Documents\PowerShell\Modules\SystemConfigurationHelper" -ArgumentList $server
+      Import-Module -Name "C:\Users\{your_user_name}\Documents\PowerShell\Modules\UserManagerHelper" -ArgumentLis $server
       ```
 
 #### Permanently Add the Module Path to `$env:PSModulePath`
@@ -232,7 +232,7 @@ The toolkit has been documented with `Get-Help` to provide detailed information 
       ```powershell
       Get-Help SignIn
       ```
-    - Replace `Get-AuthenticationDetails` with the name of the cmdlet or function you want to learn more about.
+    - Replace `SignIn` with the name of the cmdlet or function you want to learn more about.
 
 3. Explore Additional Help Topics
     - To view a list of available cmdlets and functions in a module, use:
@@ -241,11 +241,11 @@ The toolkit has been documented with `Get-Help` to provide detailed information 
         ```
     - For more detailed information on each cmdlet or function, including examples and parameter descriptions, use:
         ```powershell
-        Get-Help <Function-Name> -Detailed
+        Get-Help "Function-Name" -Detailed
         ```
       or  
         ```powershell
-        Get-Help <Function-Name> -Examples
+        Get-Help "Function-Name" -Examples
         ```
 
 By using `Get-Help`, you can access comprehensive documentation and examples for all the functions available in the toolkit, aiding you in effectively utilizing the provided modules.
@@ -564,10 +564,21 @@ Windows may block files downloaded from the internet for security reasons. To en
 - Click "OK" to close the Properties dialog.
 
 ## Contribution
-If you want to add a new functionality or you spot a bug please fill free to create a pull request with your changes.
+If you want to add a new functionality or you spot a bug please fill free to create a [pull request](https://www.codenewbie.org/blogs/how-to-make-a-pull-request) with your changes.
 
 ## Issues
-If you find an issue you report it here.
+If you find an issue you report it [here](https://github.com/RWS/groupshare-api-powershell-toolkit/issues).
 
 ## Changes
-### Version
+### v1.0.0.0
+Initial Release of the GroupShare PowerShell Toolkit: This version introduces a suite of PowerShell scripts designed to enhance interaction with GroupShare, enabling efficient project, resource, and system management.
+  - **Key Features**:
+  - **Project Management**: Create, update, and manage projects seamlessly.
+  - **Resource Management**: Handle translation memories, project templates and field templates.
+  - **System Configuration Management**: Access and modify containers and dbservers.
+  - **User Management**: Manage user accounts and permissions.
+
+- **Additional Features**:
+  - Comprehensive help support for users.
+  - Sample scripts included for common tasks.
+  - A detailed README.md file to guide installation and usage.

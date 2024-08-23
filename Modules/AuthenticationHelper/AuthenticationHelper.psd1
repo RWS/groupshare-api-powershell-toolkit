@@ -3,7 +3,7 @@
     ModuleToProcess = 'AuthenticationHelper.psm1'
     
     # Version number of this module.
-    ModuleVersion = '3.0.0.0' # we might need to change this
+    ModuleVersion = '1.0.0.0'
     
     # ID used to uniquely identify this module
     GUID = '{6B52C1E0-3EE3-4E18-BD8D-AC13A5B1D75E}'

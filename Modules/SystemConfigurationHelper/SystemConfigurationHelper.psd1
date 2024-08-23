@@ -4,7 +4,7 @@
     ModuleToProcess = 'SystemConfigurationHelper.psm1'
     
     # Version number of this module.
-    ModuleVersion = '3.0.0.0' # we might need to change this
+    ModuleVersion = '1.0.0.0'
     
     # ID used to uniquely identify this module
     GUID = '{EB777235-46DF-46E0-9528-3729E806701A}'

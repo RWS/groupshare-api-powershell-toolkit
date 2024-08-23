@@ -4,7 +4,7 @@
     ModuleToProcess = 'BackgroundTaskHelper.psm1'
     
     # Version number of this module.
-    ModuleVersion = '3.0.0.0' # we might need to change this
+    ModuleVersion = '1.0.0.0'
     
     # ID used to uniquely identify this module
     GUID = '{A86B1BAD-9089-47B6-88BB-0B96F6D7BEB9}'

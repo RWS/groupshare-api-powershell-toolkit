@@ -4,7 +4,7 @@
     ModuleToProcess = 'UserManagerHelper.psm1'
     
     # Version number of this module.
-    ModuleVersion = '3.0.0.0' # we might need to change this
+    ModuleVersion = '1.0.0.0'
     
     # ID used to uniquely identify this module
     GUID = '{7E9D2A89-D4A5-4456-BC2F-D8AF1057052D}'
