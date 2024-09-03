@@ -29,7 +29,7 @@ jobs:
         uses: Azure/trusted-signing-action@v0.3.17
         with:
           azure-tenant-id: ${{ secrets.TrustedSigningTenantID }}
-          azure-client-id: ${{ secrets.TrustedSigningSigningClientId) }}
+          azure-client-id: ${{ secrets.TrustedSigningSigningClientId }}
           azure-client-secret: ${{ secrets.TrustedSigningSigningSecret}}
           endpoint: ${{ secrets.TrustedSigningEndPoint }}
           trusted-signing-account-name: ${{ secrets.TrustedSigningAccountName}}
