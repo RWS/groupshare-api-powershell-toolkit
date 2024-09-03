@@ -16,7 +16,6 @@ jobs:
 
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
       - name: Trusted Signing
@@ -32,10 +31,9 @@ jobs:
           files-folder-filter: 'ps1,psm1,psd1,dll'
           files-folder-recurse: true
           files-folder-depth: 5
-
           
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v3.2.1-node20
+        uses: actions/upload-artifact@v4
         with:
           name: SignedPowershell
           path:  ${{ github.workspace }}
