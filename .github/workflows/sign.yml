@@ -1,22 +1,32 @@
-name: CI
+# Run this action to create a signed release of the toolkit
+# TOOLKIT_VERSION is a repo variable of the major and minor release for the repo 
+# the release will have a patch version of the number of runs that this action has completed.
 
+name: MakeRelease
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
   workflow_dispatch:
-
 
 jobs:
   build:
     runs-on: windows-latest
 
-
     steps:
       - uses: actions/checkout@v4
+      
+      - id: create_version
+        name: Create version number
+        shell: pwsh
+        run: |
+          chcp 65001
+          $APPVERSION="$($env:TOOLKIT_VERSION).$($env:GITHUB_RUN_NUMBER)"
+          $RunVersion ="RELEASEVERSION=$APPVERSION"
+          Write-Host "$RunVersion=$RunVersion" 
+          $RunVersion | Out-File -FilePath $env:GITHUB_ENV -Append
+          $RunVersion | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+
+        env:
+          TOOLKIT_VERSION: ${{ vars.TOOLKIT_VERSION }}
 
       - name: Trusted Signing
         uses: Azure/trusted-signing-action@v0.3.17
@@ -31,10 +41,11 @@ jobs:
           files-folder-filter: 'ps1,psm1,psd1,dll'
           files-folder-recurse: true
           files-folder-depth: 5
-          
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
         with:
-          name: SignedPowershell
-          path:  ${{ github.workspace }}
+          tag_name: v${{ env.RELEASEVERSION }}
+          files: |
+            *.*
           
