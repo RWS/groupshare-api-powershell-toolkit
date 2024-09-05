@@ -51,10 +51,7 @@ jobs:
           write-host "Preparing folder $targetFolder"
           Remove-Item $targetFolder -Force -Recurse -ErrorAction SilentlyContinue
           mkdir $targetFolder -Force
-          Copy-Item "Modules\*" "$targetFolder" -recurse
-          Copy-Item "Sample_Roundtrip.ps1" "$targetFolder"
-          Copy-Item "License" "$targetFolder"
-          Copy-Item "README.md" "$targetFolder"
+          Copy-Item "*" "$targetFolder" -recurse -Exclude  @("*.yml",".github",".vscode","artifacts" )
           cd .\artifacts\toolkit
           7z a ..\Toolkit${{ env.RELEASEVERSION }}.zip *
 
