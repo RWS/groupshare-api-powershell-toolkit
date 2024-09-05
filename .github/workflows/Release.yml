@@ -61,6 +61,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
+          name: GroupShare PowerShell Toolkit v${{ needs.build.outputs.APPVERSION}}
           tag_name: v${{ env.RELEASEVERSION }}
           files: |
             License
