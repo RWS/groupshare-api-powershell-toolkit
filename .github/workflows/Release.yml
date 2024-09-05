@@ -7,7 +7,7 @@ name: MakeRelease
 on:
   workflow_dispatch:
   
-run-name: Release run ${{ var.TOOLKIT_VERSION }}.${{ github.RUN_NUMBER }} by @${{ github.actor }}
+run-name: Release run ${{ github.RUN_NUMBER }} by @${{ github.actor }}
 
 jobs:
   build:
