@@ -53,7 +53,8 @@ jobs:
           Copy-Item "Sample_Roundtrip.ps1" "$targetFolder"
           Copy-Item "License" "$targetFolder"
           Copy-Item "README.md" "$targetFolder"
-          7z a artifacts\Toolkit${{ env.RELEASEVERSION }}.zip $targetFolder
+          cd .\artifacts\toolkit
+          7z a ..\Toolkit${{ env.RELEASEVERSION }}.zip *
 
       - name: Release
         uses: softprops/action-gh-release@v2
