@@ -42,10 +42,24 @@ jobs:
           files-folder-recurse: true
           files-folder-depth: 5
 
+      - name: Prepare release
+        shell: pwsh
+        run: |
+          $targetFolder = "artifacts\toolkit"
+          write-host "Preparing folder $targetFolder"
+          Remove-Item $targetFolder -Force -Recurse -ErrorAction SilentlyContinue
+          mkdir $targetFolder -Force
+          Copy-Item "Modules\*" "$targetFolder" -recurse
+          Copy-Item "Sample_Roundtrip.ps1" "$targetFolder"
+          Copy-Item "License" "$targetFolder"
+          Copy-Item "README.md" "$targetFolder"
+          7z a artifacts\Toolkit${{ env.RELEASEVERSION }}.zip $targetFolder
+
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ env.RELEASEVERSION }}
           files: |
-            *.*
+            License
+            artifacts/*.zip
           
