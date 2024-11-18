@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+		<!-- Install Directory -->
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="INSTALLDIR" Name="PowerShell">
+				<Component Id="c_RemoveINSTALLDIR">
+					<RemoveFolder Id="INSTALLDIR" On="uninstall"/>
+					<RegistryValue Root="HKCU" Key="Software\GroupShare API PowerShell Toolkit" Name="Installed" Type="integer" Value="1" KeyPath="yes" />
+				</Component>
+
+				<!-- Modules Directory -->
+				<Directory Id="ModulesFolder" Name="Modules">
+					<Component Id="c_RemoveModulesFolder">
+						<RemoveFolder Id="ModulesFolder" On="uninstall"/>
+						<RegistryValue Root="HKCU" Key="Software\GroupShare API PowerShell Toolkit\ModulesFolder" Name="Installed" Type="integer" Value="1" KeyPath="yes" />
+					</Component>
+
+					<Directory Id="AuthenticationHelper" Name="AuthenticationHelper" />
+					<Directory Id="BackgroundTaskHelper" Name="BackgroundTaskHelper" />
+					<Directory Id="ProjectServerHelper" Name="ProjectServerHelper" />
+					<Directory Id="ResourcesHelper" Name="ResourcesHelper" />
+					<Directory Id="SystemConfigurationHelper" Name="SystemConfigurationHelper" />
+					<Directory Id="UserManagerHelper" Name="UserManagerHelper" />
+				</Directory>
+
+				<!-- Documentation Directory -->
+				<Directory Id="DocumentationFolder" Name="Documentation" />
+			</Directory>
+
+			<!-- Desktop Directory -->
+			<Directory Id="DesktopFolder" Name="Desktop" />
+
+			<!-- Start Menu Directory -->
+			<Directory Id="ProgramMenuFolder">
+				<Directory Id="ApplicationProgramsFolder" Name="GroupShare API PowerShell Toolkit" />
+			</Directory>
+		</Directory>
+	</Fragment>
+</Wix>

@@ -29,8 +29,21 @@ To run the scripts, ensure you have the following:
    - Ensure you have access to a GroupShare server, as the scripts will interact with it for various operations.
 
 ## Installation
+### **1. Using the MSI Installer**
+For a quicker and more streamlined installation, you can use the MSI installer. This method automates the entire process, saving you time and ensuring all necessary files are placed in the correct locations.
+
+1. **Download the MSI Installer**
+    - Download the MSI installer from the [official releases page](https://github.com/RWS/groupshare-api-powershell-toolkit/releases).
+
+2. **Run the MSI Installer**
+    - Double-click the downloaded MSI file to begin the installation process.
+    - Follow the on-screen prompts to install the toolkit. The installer will automatically place the necessary scripts and modules in the correct directories.
+3. **Verify Installation**
+    - After the installation is complete, verify that the toolkit has been correctly installed by checking the installation path.
+
+### **2. Manual Installation**
 1. Download the Files
-    - **Obtain all necessary files:** Ensure you have downloaded the toolkit files, including sample roundtrip script and PowerShell modules. These files should be obtained from the [here](https://github.com/RWS/groupshare-api-powershell-toolkit/releases/tag/1.0.0.0). 
+    - Ensure you have downloaded all necessary files for the toolkit, including the sample roundtrip scripts and PowerShell modules. These files are available at the [official releases page](https://github.com/RWS/groupshare-api-powershell-toolkit/releases). Be sure to download the latest release to ensure you have the most up-to-date version of the toolkit.
     - After downloading, you may need to unblock the zip file. For instructions on how to unblock files, see [Ensuring File Permissions](#ensuring-file-permissions-for-toolkit-files) for Toolkit File.
 2. Create Required Folders
     - Create the following folders if they do not already exist:
@@ -200,6 +213,8 @@ If you want to add the module path permanently so that it remains available acro
         $env:PSModulePath
         ```
     - You should see your new path included in the output.
+
+    **Note: If you installed the toolkit using the MSI installer, the installation path should already be automatically added to your environment path, and you won’t need to manually add it.**
 
 ### Using the Modules 
 Once the modules are imported, you can start using their functions in PowerShell 7. Each module provides specific cmdlets and functions that you can call directly in your session. For example:
@@ -570,6 +585,9 @@ If you want to add a new functionality or you spot a bug please fill free to cre
 If you find an issue you report it [here](https://github.com/RWS/groupshare-api-powershell-toolkit/issues).
 
 ## Changes
+### v1.0.1.0
+  - **MSI Installer**: Introduced a WIX-based MSI installer for streamlined toolkit deployment.
+
 ### v1.0.0.0
 Initial Release of the GroupShare PowerShell Toolkit: This version introduces a suite of PowerShell scripts designed to enhance interaction with GroupShare, enabling efficient project, resource, and system management.
   - **Key Features**:

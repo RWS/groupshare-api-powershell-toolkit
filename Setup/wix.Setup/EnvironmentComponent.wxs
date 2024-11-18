@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+		<Component Id="AddPSModulePath" Guid="2a9aeea1-1f6e-419b-8c7c-20eef9d22ee7" Directory="ModulesFolder">
+			<CreateFolder />
+			<RegistryValue KeyPath="yes" Root="HKCU" Key="SOFTWARE\GroupShare API PowerShell Toolkit" Name="Installed" Type="integer" Value="1" Action="write" />
+			<Environment Id="AddToPSModulePath"
+						 Name="PSModulePath"
+						 Value="[INSTALLDIR]Modules"
+						 Action="set"
+						 Part="last"
+						 Permanent="no"
+						 System="no" />
+		</Component>
+	</Fragment>
+</Wix>

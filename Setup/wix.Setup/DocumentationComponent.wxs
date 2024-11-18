@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+		<Component Id="README" Directory="DocumentationFolder" Guid="5f0ef326-e11d-4fd9-8bd8-32ac62bf0a80">
+			<File Source="..\..\README.md" />
+		</Component>
+	</Fragment>
+</Wix>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+		<Component Id="c_Sample_Roundtrip.ps1" Directory="INSTALLDIR" Guid="ca40ccf3-bcac-4c2c-b761-d26aaf809f15">
+			<File Source="..\..\Sample_Roundtrip.ps1" />
+		</Component>
+	</Fragment>
+</Wix>

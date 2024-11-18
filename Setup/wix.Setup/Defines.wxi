@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+	<?define productVersion = "1.0.1"?>
+	<?define upgradeCode = "fbc87378-d831-4a10-adb6-d35b8500723a"?>
+	<?define appName = "GroupShare API PowerShell Toolkit"?>
+	<?define manufacturer = "Trados AppStore Team"?>
+</Include>

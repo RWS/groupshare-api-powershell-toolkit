@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+		<ComponentGroup Id="ModulesComponentGroup">
+			<!-- AuthenticationHelper -->
+			<Component Id="c_AuthenticationHelper.psd1" Directory="AuthenticationHelper" Guid="09507e50-4035-4d66-a9cf-06d36782edfb">
+				<File Source="..\..\Modules\AuthenticationHelper\AuthenticationHelper.psd1"/>
+			</Component>
+			<Component Id="c_AuthenticationHelper.psm1" Directory="AuthenticationHelper" Guid="67088179-d496-44a8-8a20-b99ccfea6575">
+				<File Source="..\..\Modules\AuthenticationHelper\AuthenticationHelper.psm1"/>
+			</Component>
+			
+			<!-- BackgroundTaskHelper -->
+			<Component Id="c_BackgroundTaskHelper.psd1" Directory="BackgroundTaskHelper" Guid="9d612d90-dd85-40cc-a3ea-4e4d368386a9">
+				<File Source="..\..\Modules\BackgroundTaskHelper\BackgroundTaskHelper.psd1"/>
+			</Component>
+			<Component Id="c_BackgroundTaskHelper.psm1" Directory="BackgroundTaskHelper" Guid="204afa53-b06d-4495-8d55-2e142da68524">
+				<File Source="..\..\Modules\BackgroundTaskHelper\BackgroundTaskHelper.psm1"/>
+			</Component>
+
+			<!-- ProjectServerHelper -->
+			<Component Id="c_ProjectServerHelper.psd1" Directory="ProjectServerHelper" Guid="217aad2c-0a45-44b0-89cc-059723133063">
+				<File Source="..\..\Modules\ProjectServerHelper\ProjectServerHelper.psd1"/>
+			</Component>
+			<Component Id="c_ProjectServerHelper.psm1" Directory="ProjectServerHelper" Guid="49fcc741-99ad-49d3-bbd8-c838a2b3b30a">
+				<File Source="..\..\Modules\ProjectServerHelper\ProjectServerHelper.psm1"/>
+			</Component>
+
+
+			<!-- ResourcesHelper -->
+			<Component Id="c_ResourcesHelper.psd1" Directory="ResourcesHelper" Guid="1f024a1f-c943-442f-aa97-af191b1f26e3">
+				<File Source="..\..\Modules\ResourcesHelper\ResourcesHelper.psd1"/>
+			</Component>
+			<Component Id="c_ResourcesHelper.psm1" Directory="ResourcesHelper" Guid="be148c32-0822-44cf-966f-b6426dd91b5c">
+				<File Source="..\..\Modules\ResourcesHelper\ResourcesHelper.psm1"/>
+			</Component>
+
+			<!-- SystemConfigurationHelper -->
+			<Component Id="c_SystemConfigurationHelper.psd1" Directory="SystemConfigurationHelper" Guid="3512724c-371e-4eee-aa22-af0eccdf15c2">
+				<File Source="..\..\Modules\SystemConfigurationHelper\SystemConfigurationHelper.psd1"/>
+			</Component>
+			<Component Id="c_SystemConfigurationHelper.psm1" Directory="SystemConfigurationHelper" Guid="9132d8b6-7b97-411f-ad06-e1499b6a9abc">
+				<File Source="..\..\Modules\SystemConfigurationHelper\SystemConfigurationHelper.psm1"/>
+			</Component>
+
+			<!-- SystemConfigurationHelper -->
+			<Component Id="c_UserManagerHelper.psd1" Directory="UserManagerHelper" Guid="a5f22f1b-dbd7-4921-b2e8-f28800bca731">
+				<File Source="..\..\Modules\UserManagerHelper\UserManagerHelper.psd1"/>
+			</Component>
+			<Component Id="c_UserManagerHelper.psm1" Directory="UserManagerHelper" Guid="e76315eb-ec9b-434f-ac2c-be24efa5fc5e">
+				<File Source="..\..\Modules\UserManagerHelper\UserManagerHelper.psm1"/>
+			</Component>
+		</ComponentGroup>
+	</Fragment>
+</Wix>
