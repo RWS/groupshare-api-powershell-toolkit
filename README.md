@@ -585,7 +585,7 @@ If you want to add a new functionality or you spot a bug please fill free to cre
 If you find an issue you report it [here](https://github.com/RWS/groupshare-api-powershell-toolkit/issues).
 
 ## Changes
-### v1.0.1.0
+### v1.0.10.0
   - **MSI Installer**: Introduced a WIX-based MSI installer for streamlined toolkit deployment.
 
 ### v1.0.0.0
