@@ -585,6 +585,9 @@ If you want to add a new functionality or you spot a bug please fill free to cre
 If you find an issue you report it [here](https://github.com/RWS/groupshare-api-powershell-toolkit/issues).
 
 ## Changes
+### v1.0.11.0:
+  - **Export-TMX bug fix**: Resolved an issue where the `Export-TMX` method was incorrectly generating empty `.tmx.gz` files. Now, the exported translation memories will be complete and correctly formatted.
+
 ### v1.0.10.0
   - **MSI Installer**: Introduced a WIX-based MSI installer for streamlined toolkit deployment.
 

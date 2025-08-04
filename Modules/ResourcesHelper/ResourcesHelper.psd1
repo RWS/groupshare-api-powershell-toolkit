@@ -4,7 +4,7 @@
     ModuleToProcess = 'ResourcesHelper.psm1'
     
     # Version number of this module.
-    ModuleVersion = '1.0.0.0'
+    ModuleVersion = '1.0.1.0'
     
     # ID used to uniquely identify this module
     GUID = '{2F35FB27-FC6D-4BAC-80F7-9E80AA9E4E6D}'

@@ -2260,7 +2260,7 @@ function Get-ExportFile
     $taskUri = $server + "/api/tmservice/tasks/" + $task.id;
     $status = Invoke-Method { Invoke-RestMethod -Uri $taskUri -Headers $taskHeaders }
         
-    while ($status.Status -eq "Queued")
+    while ($status.Status -eq "Queued" -or $status.Status -eq "InProgress")
     {
         Start-Sleep -Seconds 2;
         $status = Invoke-RestMethod -Uri $taskUri -Headers $taskHeaders
